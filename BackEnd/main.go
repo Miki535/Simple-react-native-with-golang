@@ -14,6 +14,6 @@ func main() {
 			"": a,
 		})
 	})
-	log.Println("\nServer start on http://localhost:8080")
+	log.Println("\nServer start on http://10.0.2.2:8080")
 	r.Run()
 }

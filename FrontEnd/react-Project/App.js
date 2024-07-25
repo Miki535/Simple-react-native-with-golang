@@ -11,7 +11,7 @@ export default function App() {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://10.0.2.2:8080');
-        console.log(response.data);
+        setMessage(JSON.stringify(response.data, null, 2));
       } catch (error) {
         console.log('Error fetching data: ', error);
       }

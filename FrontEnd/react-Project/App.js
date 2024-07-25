@@ -1,10 +1,28 @@
+import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import axios from 'axios';
 
 export default function App() {
+  
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080');
+        setMessage(response.data);
+      } catch (error) {
+        console.log('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text>Hello World!</Text>
+      <Text>{message}</Text>
       <StatusBar style="auto" />
     </View>
   );

@@ -1,13 +1,19 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"log"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
+	r.GET("/", func(c *gin.Context) {
+		a := 3
 		c.JSON(200, gin.H{
-			"message": "pong",
+			"": a,
 		})
 	})
-	r.Run(":8080")
+	log.Println("\nServer start on http://localhost:8080")
+	r.Run()
 }

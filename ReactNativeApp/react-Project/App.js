@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import axios from 'axios';
 
 export default function App() {
   
   const [message, setMessage] = useState('');
 
-  useEffect(() => {
+  const useEffect = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://10.0.2.2:8080');
@@ -18,10 +18,11 @@ export default function App() {
     };
 
     fetchData();
-  }, []);
+  };
 
   return (
     <View style={styles.container}>
+      <Button title="Send" onPress={useEffect} />
       <Text>{message}</Text>
       <StatusBar style="auto" />
     </View>

@@ -16,5 +16,5 @@ func main() {
 		})
 	})
 	log.Println("\nServer start on http://10.0.2.2:8080")
-	r.Run()
+	r.Run() // start server on localhost:8080
 }
